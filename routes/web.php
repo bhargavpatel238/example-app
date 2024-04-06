@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -19,4 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/login','login');
+
+Route::get('/login',[CustomerController::class,'custom_login']);
+Route::post('/login',[CustomerController::class,'login']);
+Route::get('/home',[ProductController::class,'Index']);
